@@ -2,7 +2,8 @@
     <div class="ComicAppi">
         <h1>MARVEL COMIC API</h1>
         <comicSearch class="comicSearch" @sendHero='getHero'></comicSearch>
-        <comicList :heroId='heroId'></comicList>
+        <comicList :hero='hero'></comicList>
+        
     </div>
 </template>
 
@@ -14,16 +15,16 @@ export default {
     name : 'ComicAppi',
     data() {
         return {
-            heroId : ''
+            hero : ""
         }
     },
     components : {
         ComicSearch,
-        ComicList
+        ComicList,
     },
     methods : {
-        getHero(heroId) {
-            this.heroId = heroId;
+        getHero(hero) {
+            this.hero = hero;
         }
     }
 }
@@ -32,10 +33,11 @@ export default {
 <style scoped>
 
     h1 {
-        background-color: red;
-    }
-    .comicSearch {
-        background-color: brown;
+        margin: 0;
+        padding: 30px;
+        background-color: #BD1023;
+        color: #FFF;
+        font-family: 'Marvel', sans-serif;
     }
 </style>
 

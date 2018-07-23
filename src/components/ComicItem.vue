@@ -1,6 +1,6 @@
 <template>
     <div>
-       <router-link  class="comicImg" :style="{backgroundImage : `url(${this.comic.thumbnail.path}.${this.comic.thumbnail.extension} )`}" :to="'/' + this.comic.id"></router-link>
+       <router-link  class="comicImg" :style="{backgroundImage : `url(${this.comic.thumbnail.path}.${this.comic.thumbnail.extension} )`}" :to="{path:'/comic', query: {id: this.comic.id}}"></router-link>
     </div>
 
 </template>
@@ -12,7 +12,7 @@ export default {
 
     data() {
         return {
-
+            
         }
     },
 }
@@ -26,6 +26,7 @@ export default {
         width: 300px;
         margin: 10px;
         background-size: cover;
+        border-radius: 5px;
     }
 </style>
 
