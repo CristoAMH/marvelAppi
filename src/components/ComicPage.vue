@@ -3,7 +3,7 @@
         <nav>
             <ul>
                 <li>
-                    <router-link :to="{name: 'getComicsFromPages' , params: {pages: 1}, query : {search: hero}}">First</router-link>
+                    <router-link @click='currentPage' :to="{name: 'getComicsFromPages' , params: {pages: 1}, query : {search: hero}}">First</router-link>
                 </li>
                 <li v-for="page in availablePages" :key="page">
                     <router-link :to="{name: 'getComicsFromPages' , params: {pages: page}, query : {search: hero}}">{{page}}</router-link>
@@ -28,7 +28,8 @@ export default {
     computed : {
         availablePages(){
             let availablePages
-            if(Number(this.currentPage) === 1){
+
+            if(Number(this.currentPage) === 1 || Number(this.currentPage)  === 2 ){
                 return availablePages = [this.currentPage, Number(this.currentPage) + 1, Number(this.currentPage) + 2]
             } else if(this.currentPage === this.totalPages || this.currentPage === this.totalPages -1 ) {
                 return availablePages = [ Number(this.totalPages) - 2, Number(this.totalPages) - 1 , this.totalPages   ]
@@ -54,13 +55,15 @@ export default {
         padding: 15px;
         height: 100%;
         width: auto;
-        background-color: #000;
         list-style-type: none;
         display: inline-block;
     }
     li a {
         color: #FFF;
         text-decoration: none;
+    }
+    .currentPage {
+        background-color: #000;
     }
 
 </style>
